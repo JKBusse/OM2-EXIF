@@ -1,0 +1,19 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://illegale-daten.de/projekte/exif4film/exif4film.schema.json",
+ "title": "exif4film Schema",
+ "description": "Describes a json file which represents a roll of film, its scans and the metadata of the contained images.",
+ "type": "object",
+ "properties": {
+  "roll": {
+   "type": "string"
+  },
+  "scans": {
+   "type": "integer"
+  },
+  "images": {
+   "type": "array"
+  }
+ },
+ "required": ["roll", "scans", "images"]
+}
