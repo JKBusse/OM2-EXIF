@@ -1,6 +1,8 @@
 {
-  "roll": {
-    "type": "Kodak Gold 200"
+  "general": {
+    "roll": "Kodak Gold 200",
+    "camera": "Olympus OM-2",
+    "ISO": 200
   },
   "scans": 36,
   "images": []

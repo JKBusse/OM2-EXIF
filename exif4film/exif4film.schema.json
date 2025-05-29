@@ -1,25 +1,35 @@
 {
- "$schema": "https://json-schema.org/draft/2020-12/schema",
- "$id": "https://illegale-daten.de/projekte/exif4film/exif4film.schema.json",
- "title": "exif4film Schema",
- "description": "Describes a json file which represents a roll of film, its scans and the metadata of the contained images.",
- "type": "object",
- "properties": {
-  "roll": {
-   "type": "object",
-   "properties": {
-    "type": {
-        "type": "string",
-        "description": "The name of the film roll, e.g. 'Kodak Gold 200'."
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "",
+  "title": "exif4film Schema",
+  "description": "Describes a json file which represents a roll of film, its scans and the metadata of the contained images.",
+  "type": "object",
+  "properties": {
+    "general": {
+      "type": "object",
+      "description": "General information about the film roll and camera, which don't change between images.",
+      "properties": {
+        "camera": {
+          "type": "string",
+          "description": "The camera used to take the photos, e.g. 'Olympus OM-2'."
+        },
+        "roll": {
+          "type": "string",
+          "description": "The type of film used, e.g. 'Kodak Gold 200'."
+        },
+        "ISO": {
+          "type": "integer",
+          "description": "The ISO value of the film, e.g. 200."
+        }
+      },
+        "required": ["roll", "camera", "ISO"]
     }
-   }
   },
   "scans": {
-   "type": "integer"
+    "type": "integer"
   },
   "images": {
-   "type": "array"
-  }
- },
- "required": ["roll", "scans", "images"]
+    "type": "array"
+  },
+"required": ["general", "images"]
 }
