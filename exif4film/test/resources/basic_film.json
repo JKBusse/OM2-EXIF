@@ -1,9 +1,15 @@
 {
   "general": {
-    "roll": "Kodak Gold 200",
-    "camera": "Olympus OM-2",
-    "ISO": 200
+    "camera": {
+      "brand": "Olympus",
+      "model": "OM-2",
+      "serial number": "123456789"
+    },
+    "film": {
+      "roll": "Kodak Gold 200",
+      "ISO": 200,
+      "exposure index": 200
+    }
   },
-  "scans": 36,
   "images": []
 }

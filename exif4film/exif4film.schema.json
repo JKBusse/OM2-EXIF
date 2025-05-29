@@ -10,26 +10,59 @@
       "description": "General information about the film roll and camera, which don't change between images.",
       "properties": {
         "camera": {
-          "type": "string",
-          "description": "The camera used to take the photos, e.g. 'Olympus OM-2'."
+          "type": "object",
+          "description": "Information about the camera used",
+          "properties": {
+            "brand": {
+              "type": "string",
+              "description": "The make of the camera, e.g. 'Olympus'."
+            },
+            "model": {
+              "type": "string",
+              "description": "The model of the camera, e.g. 'OM-2'."
+            },
+            "serial number": {
+              "type": "string",
+              "description": "The serial number of the camera, if available."
+            }
+          }
         },
-        "roll": {
-          "type": "string",
-          "description": "The type of film used, e.g. 'Kodak Gold 200'."
-        },
-        "ISO": {
-          "type": "integer",
-          "description": "The ISO value of the film, e.g. 200."
+        "film": {
+          "type": "object",
+            "description": "Information about the film used",
+          "properties": {
+            "roll": {
+              "type": "string",
+              "description": "The type of film used, e.g. 'Kodak Gold 200'."
+            },
+            "ISO": {
+              "type": "integer",
+              "description": "The rated ISO value (box speed) of the film, e.g. 200."
+            },
+            "exposure index": {
+              "type": "integer",
+              "description": "The actual exposure index used for the film, e.g. 400. This can differ from the ISO value if the film is pushed or pulled."
+            }
+          },
+          "required": [
+            "roll",
+            "exposure index"
+          ]
         }
       },
-        "required": ["roll", "camera", "ISO"]
+      "required": [
+        "film"
+      ]
+    },
+    "scans": {
+      "type": "object"
+    },
+    "images": {
+      "type": "array"
     }
   },
-  "scans": {
-    "type": "integer"
-  },
-  "images": {
-    "type": "array"
-  },
-"required": ["general", "images"]
+  "required": [
+    "general",
+    "images"
+  ]
 }
