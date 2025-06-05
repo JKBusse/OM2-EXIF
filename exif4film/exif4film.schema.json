@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "",
+  "$id": "https://raw.githubusercontent.com/JKBusse/OM2-EXIF/refs/heads/dev/exif4film_initial_work/exif4film/exif4film.schema.json",
   "title": "exif4film Schema",
   "description": "Describes a json file which represents a roll of film, its scans and the metadata of the contained images.",
   "type": "object",
@@ -11,7 +11,7 @@
       "properties": {
         "camera": {
           "type": "object",
-          "description": "Information about the camera used",
+          "description": "Information about the camera used.",
           "properties": {
             "brand": {
               "type": "string",
@@ -29,7 +29,7 @@
         },
         "film": {
           "type": "object",
-            "description": "Information about the film used",
+            "description": "Information about the film used.",
           "properties": {
             "roll": {
               "type": "string",
@@ -55,7 +55,18 @@
       ]
     },
     "scans": {
-      "type": "object"
+      "type": "array",
+      "description": "A list of scans of the film roll.",
+      "items": {
+        "type": "object",
+        "description": "Information about a scan of the film roll.",
+        "properties": {
+          "scanner": {
+            "type": "string",
+            "description": "The make and model of the scanner used."
+          }
+        }
+      }
     },
     "images": {
       "type": "array"

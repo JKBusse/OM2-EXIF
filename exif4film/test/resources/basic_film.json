@@ -8,8 +8,21 @@
     "film": {
       "roll": "Kodak Gold 200",
       "ISO": 200,
-      "exposure index": 200
+      "exposure index": 200,
+      "development": {
+        "process": "C-41",
+        "lab": "PhotoLabName",
+        "date": "2025-01-15"
+      }
     }
   },
-  "images": []
+  "images": [],
+  "scans": [
+    {
+      "scanner": "Epson V600"
+    },
+    {
+      "scanner": "Plustek OpticFilm 8200i"
+    }
+  ]
 }
