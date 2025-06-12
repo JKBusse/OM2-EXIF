@@ -1,0 +1,30 @@
+{
+  "general": {
+    "camera": {
+      "brand": "Olympus",
+      "model": "OM-2",
+      "serial number": "123456789"
+    },
+    "film": {
+      "name": "Kodak Gold 200",
+      "additional info": "just a test file",
+      "box speed": 200,
+      "exposure index": 200,
+      "size": "135",
+      "development": {
+        "process": "C-41",
+        "lab": "PhotoLabName",
+        "date": "2025-01-15"
+      }
+    }
+  },
+  "images": [],
+  "scans": [
+    {
+      "scanner": "Epson V600"
+    },
+    {
+      "scanner": "Plustek OpticFilm 8200i"
+    }
+  ]
+}

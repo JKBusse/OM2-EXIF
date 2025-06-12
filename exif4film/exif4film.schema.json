@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/JKBusse/OM2-EXIF/refs/heads/dev/exif4film_initial_work/exif4film/exif4film.schema.json",
+  "title": "exif4film Schema",
+  "description": "Describes a json file which represents a roll of film, its scans and the metadata of the contained images.",
+  "type": "object",
+  "properties": {
+    "general": {
+      "type": "object",
+      "description": "General information about the film roll and camera, which don't change between images.",
+      "properties": {
+        "camera": {
+          "type": "object",
+          "description": "Information about the camera used.",
+          "properties": {
+            "brand": {
+              "type": "string",
+              "description": "The make of the camera, e.g. 'Olympus'."
+            },
+            "model": {
+              "type": "string",
+              "description": "The model of the camera, e.g. 'OM-2'."
+            },
+            "serial number": {
+              "type": "string",
+              "description": "The serial number of the camera, if available."
+            }
+          }
+        },
+        "film": {
+          "type": "object",
+            "description": "Information about the film used.",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The type of film used, e.g. 'Kodak Gold 200'."
+            },
+            "size": {
+              "type": "string",
+              "description": "The size of the film, e.g. '135'."
+            },
+            "box speed": {
+              "type": "integer",
+              "description": "The rated ISO value (box speed) of the film, e.g. 200."
+            },
+            "exposure index": {
+              "type": "integer",
+              "description": "The actual exposure index used for the film, e.g. 400. This can differ from the ISO value if the film is pushed or pulled."
+            },
+            "development": {
+              "type": "object",
+              "description": "Information about the development of the film.",
+              "properties": {
+                "process": {
+                  "type": "string",
+                  "description": "The development process used, e.g. 'C-41'."
+                },
+                "lab": {
+                  "type": "string",
+                  "description": "The name of the lab that developed the film, if applicable."
+                },
+                "date": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The date when the film was developed, in ISO 8601 format (YYYY-MM-DD)."
+                }
+              },
+                "required": [
+                    "process"
+                ]
+            },
+            "additional info": {
+              "type": "string",
+              "description": "Free text field for info not represented by the schema"
+            }
+          },
+          "required": [
+            "name",
+            "size",
+            "development"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "film"
+      ]
+    },
+    "scans": {
+      "type": "array",
+      "description": "A list of scans of the film roll.",
+      "items": {
+        "type": "object",
+        "description": "Information about a scan of the film roll.",
+        "properties": {
+          "scanner": {
+            "type": "string",
+            "description": "The make and model of the scanner used."
+          }
+        }
+      }
+    },
+    "images": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "general",
+    "images"
+  ],
+    "additionalProperties": false
+}
