@@ -31,23 +31,55 @@
           "type": "object",
             "description": "Information about the film used.",
           "properties": {
-            "roll": {
+            "name": {
               "type": "string",
               "description": "The type of film used, e.g. 'Kodak Gold 200'."
             },
-            "ISO": {
+            "size": {
+              "type": "string",
+              "description": "The size of the film, e.g. '135'."
+            },
+            "box speed": {
               "type": "integer",
               "description": "The rated ISO value (box speed) of the film, e.g. 200."
             },
             "exposure index": {
               "type": "integer",
               "description": "The actual exposure index used for the film, e.g. 400. This can differ from the ISO value if the film is pushed or pulled."
+            },
+            "development": {
+              "type": "object",
+              "description": "Information about the development of the film.",
+              "properties": {
+                "process": {
+                  "type": "string",
+                  "description": "The development process used, e.g. 'C-41'."
+                },
+                "lab": {
+                  "type": "string",
+                  "description": "The name of the lab that developed the film, if applicable."
+                },
+                "date": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The date when the film was developed, in ISO 8601 format (YYYY-MM-DD)."
+                }
+              },
+                "required": [
+                    "process"
+                ]
+            },
+            "additional info": {
+              "type": "string",
+              "description": "Free text field for info not represented by the schema"
             }
           },
           "required": [
-            "roll",
-            "exposure index"
-          ]
+            "name",
+            "size",
+            "development"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
@@ -75,5 +107,6 @@
   "required": [
     "general",
     "images"
-  ]
+  ],
+    "additionalProperties": false
 }

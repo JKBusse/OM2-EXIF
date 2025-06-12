@@ -6,9 +6,11 @@
       "serial number": "123456789"
     },
     "film": {
-      "roll": "Kodak Gold 200",
-      "ISO": 200,
+      "name": "Kodak Gold 200",
+      "additional info": "just a test file",
+      "box speed": 200,
       "exposure index": 200,
+      "size": "135",
       "development": {
         "process": "C-41",
         "lab": "PhotoLabName",
